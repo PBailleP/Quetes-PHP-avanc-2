@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $tel = test_input($_POST["user_tel"]);
     // check if tel is well formed
-    if (preg_match("/.0[1-9]{1}(([0-9]{2}){4})|((\s[0-9]{2}){4})|((-[0-9]{2}){4})$/",$tel)) {
+    if (!preg_match("/.0[1-9]{1}(([0-9]{2}){4})|((\s[0-9]{2}){4})|((-[0-9]{2}){4})$/",$tel)) {
       $errors[] = "Invalid phone number";
     }
   }
